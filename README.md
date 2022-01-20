@@ -1,4 +1,4 @@
-# Webpack 5 Frontend Starterkit
+# Life Expectancy calculator Webpack 5
 
 A lightweight foundation for your next webpack based frontend project.
 

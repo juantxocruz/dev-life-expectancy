@@ -12,11 +12,88 @@
 
 <body>
 
-  <section class=" assembly-container">
-    <h1 class="fontsize-18 fontweight-700">Life Expectancy</h1>
-    <img src="./img/demo-img.jpg" alt="demo" width="42">
-    <p>Open a new console and click the body.</p>
-    <small>Juantxo Cruz | 2022</small>
+  <section id="vidanr_cal" class="vidaNr-calc responsive">
+
+    <div class="container vidaNr-form">
+      <form action="" method="" target="_blank" class="vidaNr-form" id="vidanr_form" name="vidanr_form">
+        <div class="row">
+
+          <div class="col-12">
+            <h1 class="fontsize-18 fontweight-700">Esperanza de vida</h1>
+            <p>Seleccione al menos el género y la fecha de nacimiento. Si conoce el recargo de vida, rellene el campo
+              correspondiente.</p>
+          </div>
+        </div>
+
+        <hr class="hr">
+        <div class="row">
+
+          <div class="col-6">
+            <p class="form-title">Género</p>
+            <p class="mandatory"><span id='gender_msg'><small>Campo
+                  obligatorio.</small></span>&nbsp;</p>
+
+            <ul class="vertical">
+              <li><input type="radio" id="male" name="gender" value="male" autocomplete="off">
+                <label for="male">Hombre</label>
+              </li>
+              <li><input type="radio" id="female" name="gender" value="female" autocomplete="off">
+                <label for="female">Mujer</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6">
+            <p class="form-title">Fecha nacimiento</p>
+            <p class="numeric"><small><label for="birthday">&nbsp; </label></small>
+            </p>
+
+            <input class="margin__top-s row numeric" type="date" id="birthday" name="birthday" value=""
+              autocomplete="off">
+            <p class="mandatory"><span id='birthday_msg'><small>Fecha
+                  obligatoria.</small></span>&nbsp;</p>
+          </div>
+
+
+        </div>
+        <hr class="hr">
+        <div class="row">
+
+          <div class="col-6">
+
+            <p class="form-title">Recargo Vida</p>
+            <small>&nbsp;</small>
+            <table class="regular margin__top-xs">
+              <tr>
+                <td>% de recargo
+                  <p class="mandatory"><span id='charge_msg'><small>Campo
+                        obligatorio.</small></span>&nbsp;</p>
+
+                </td>
+                <td><input type="number" id="charge" name="charge" maxlength="3" min="0" max="600" autocomplete="off">
+                </td>
+
+              </tr>
+
+            </table>
+          </div>
+
+          <div class="col-6">
+            <p class="form-title">&nbsp;</p>
+            <small>&nbsp;</small>
+            <table class="regular margin__top-xs">
+              <tr>
+                <td>&nbsp;
+
+                  <input id="submit_button" type="submit" name='submit_button' value="Calcular" autocomplete="off">
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <hr class="hr">
+      </form>
+    </div>
   </section>
 </body>
 

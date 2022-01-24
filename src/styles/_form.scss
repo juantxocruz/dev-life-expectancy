@@ -1,0 +1,84 @@
+.vidaNr-calc {
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    cursor: pointer;
+    background-color: $gray_blue;
+    color: #ffffff;
+    padding: 6px 18px !important;
+    font-weight: 700;
+    border-width: 0px;
+    border-radius: 2px;
+    transition: background-color 200ms linear;
+    font-size: 15px;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    width: 64px;
+    height: 32px;
+  }
+  button:hover,
+  input[type="submit"]:hover,
+  input[type="reset"]:hover,
+  input[type="button"]:hover {
+    background-color: $primary;
+  }
+
+  ul.vertical {
+    width: 100%;
+    background-color: transparent;
+    color: inherit;
+    display: block; /* Make the links appear below each other */
+    padding: 0px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    list-style-type: none;
+  }
+
+  ul.vertical li {
+    margin: 4px 0;
+    cursor: default;
+  }
+  ul.vertical li input:hover {
+    cursor: pointer;
+  }
+
+  ul.vertical li:hover {
+    background-color: #f1f1f1; /* Dark grey background on mouse-over */
+  }
+
+  table {
+    td {
+      vertical-align: baseline;
+    }
+  }
+
+  table.regular {
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+      border: none;
+      text-align: left;
+      padding: 4px;
+    }
+  }
+  .bkg__lightgray {
+    background-color: $gray-light;
+  }
+  .hidden {
+    display: none;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  input[type="submit"].fieldsOn {
+    background-color: $green;
+  }
+  input[type="submit"].fieldsOn:hover {
+    background-color: $primary;
+  }
+}

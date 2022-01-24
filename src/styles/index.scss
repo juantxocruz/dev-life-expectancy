@@ -1,5 +1,11 @@
 @import "~@csstools/normalize.css";
-@import "./variables.scss";
+@import "./variables";
+@import "./layout";
+@import "./margins";
+@import "./form";
+@import "./modal_window";
+@import "./print";
+@import "./typography";
 
 html {
   /* 62.5% of 16px base font size is 10px */

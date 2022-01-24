@@ -1,0 +1,95 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  .vidaNr-form,
+  .modal-window {
+    display: none;
+  }
+  html,
+  body {
+    background: white;
+    width: 21cm;
+    height: 29.7cm;
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    div {
+      white-space: nowrap;
+    }
+  }
+
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  .close {
+    display: none;
+  }
+
+  a:after {
+    content: " <" attr(href) ">";
+  }
+  a[href^="http"]:after {
+    content: " <" attr(href) ">";
+  }
+  ul,
+  img,
+  table {
+    page-break-inside: avoid;
+  }
+  table {
+    font-size: 9px;
+  }
+  .row {
+    width: 18cm;
+  }
+  .col-3 {
+    width: 20%;
+  }
+  .vidaNr-calc [class*="col-"] {
+    float: left;
+    margin-right: 1%;
+  }
+  .vidaNr-calc td,
+  .vidaNr-calc th {
+    font-size: 9px;
+  }
+
+  .vidaNr-calc p.big-number {
+    font-size: 18px;
+  }
+  .modal-window .result-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: transparent;
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-origin: initial;
+    border-radius: 60px;
+    /*
+    &.life {
+      content: url(../images/SVG/life.svg);
+    }
+    &.disability {
+      content: url(../images/SVG/disability.svg);
+    }
+    &.accident {
+      content: url(../images/SVG/accident.svg);
+    }
+    &.ilt {
+      content: url(../images/SVG/ilt.svg);
+    }
+    */
+  }
+
+  /* Contenido del fichero print.css */
+}

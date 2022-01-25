@@ -3,8 +3,6 @@ function local(el) {
 
 }
 
-
-
 export function onClick(event) {
   local(this);
   console.log(event);

@@ -70,7 +70,29 @@
                         obligatorio.</small></span>&nbsp;</p>
 
                 </td>
-                <td><input type="number" id="charge" name="charge" maxlength="3" min="0" max="600" autocomplete="off">
+                <td>
+
+                  <select name="charge" id="charge">
+                    <option value="0" selected>0%</option>
+                    <option value="25">25%</option>
+                    <option value="50">50%</option>
+                    <option value="75">75%</option>
+                    <option value="100">100%</option>
+                    <option value="125">125%</option>
+                    <option value="150">150%</option>
+                    <option value="175">175%</option>
+                    <option value="100">200%</option>
+                    <option value="225">225%</option>
+                    <option value="250">250%</option>
+                    <option value="275">275%</option>
+                    <option value="300">300%</option>
+                    <option value="325">325%</option>
+                    <option value="350">350%</option>
+                    <option value="375">375%</option>
+                    <option value="400">400%</option>
+                  </select>
+
+
                 </td>
 
               </tr>
@@ -94,7 +116,178 @@
         <hr class="hr">
       </form>
     </div>
+
+
+    <!-- The Modal warning message -->
+    <div id="modal_window" class="modal-window">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" id="close_modal_info">&times;</span>
+          <h2 id="modal_header_span">Atención</h2>
+        </div>
+        <div class="modal-body">
+          <p> <strong><span id="modal_body1_span">Patología</span></strong></p>
+          <p> <span id="modal_body2_span">Patología</span></p>
+        </div>
+        <div class="modal-footer">
+          <p><small id="modal_footer_span">©NacionalRe. Todos los derechos reservados.</small></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The Modal RESULTL -->
+    <div id="modal_result" class="modal-window">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" id='close_modal_result'>&times;</span>
+          <h2 id="modal_header_span">Resultados</h2>
+        </div>
+        <div class="modal-body">
+          <div class="container modal">
+            <div class="row">
+              <div class="col-12">
+                <p class="selection small">Consulta realizada el <span id="result_today"></span></p>
+                <p class="small"><span id="result_vars_constitution">
+                    <!-- Hombre | 11/01/1965 | 56 años | 75kg | 180 cm | 24,6 imc  -->
+                  </span></p>
+                <p class="small"><span id="result_vars_medical">
+                    <!-- Diabetes tipo 1: 5 años | 80 sistólica
+                                                    | 145 diastólica | Más de 25 insulina | De 7,0 a 7,5 hemoglobina | Más de 300
+                                                    colesterol -->
+                  </span>
+                </p>
+                <p class="small"><span id="result_vars_drugs">
+                    <!-- 1 cerveza | 1 vino | 1 licor | 14 cigarrillos | 2 puros | 1 pipa -->
+                  </span>
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="container modal">
+            <div class="row">
+              <div class="col-3">
+
+                <div class="result-icon life">
+                </div>
+                <h3 class="result">Vida</h3>
+                <p class="big-number"><span id='result_insurance_life'>&nbsp;</span></p>
+                <div id="result_table_life"></div>
+                <!-- 
+                                            <table class='result-table' style="width:100%">
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Diabetes (años)</td>
+                                                    <td>+100</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Diabetes (edad)</td>
+                                                    <td>Rechazar</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>IMC</td>
+                                                    <td>+25%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Tensión</td>
+                                                    <td>+0%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Hemoglobina</td>
+                                                    <td>+125%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Insulina</td>
+                                                    <td>+125%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Colesterol</td>
+                                                    <td>+125%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Tabaco</td>
+                                                    <td>+125%</td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td>Alcohol</td>
+                                                    <td>+125%</td>
+            
+                                                </tr>
+                                            </table> -->
+
+
+              </div>
+              <div class="col-3">
+                <div class="result-icon disability">
+                </div>
+                <h3 class="result">Invalidez</h3>
+                <p class="big-number"><span id='result_insurance_disability'>&nbsp;</span></p>
+                <div id="result_table_disability"></div>
+
+              </div>
+              <div class="col-3">
+                <div class="result-icon accident">
+                </div>
+                <h3 class="result">Accidentes</h3>
+                <p class="big-number"><span id='result_insurance_accident'>&nbsp;</span></p>
+                <div id="result_table_accident"></div>
+              </div>
+              <div class="col-3">
+                <div class="result-icon illness">
+                </div>
+                <h3 class="result">Enfermedad grave</h3>
+                <p class="big-number"><span id='result_insurance_illness'>&nbsp;</span></p>
+                <div id="result_table_illness"></div>
+              </div>
+
+
+              <div class="col-3">
+                <div class="result-icon ilt"></div>
+                <h3 class="result">I.L.T.</h3>
+                <p class="big-number"><span id='result_insurance_ilt'>&nbsp;</span></p>
+                <div id="result_table_ilt"></div>
+              </div>
+            </div>
+            <div class="modal-print">
+              <button onclick="window.print()">Imprimir</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <p><small><span id="result_year"></span>©NacionalRe. Todos los derechos reservados.</small></p>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
   </section>
+
+
+
 </body>
 
 </html>

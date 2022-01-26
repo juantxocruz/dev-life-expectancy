@@ -82,6 +82,16 @@ function initBirthday() {
   }
 }
 
+function initSelect(name) {
+  let select = formForm.elements[name];
+  select.addEventListener("change", (e) => {
+    if (select.value) {
+      _charge = select.value;
+    }
+  });
+  return false;
+
+}
 
 function initRadioButtons(name) {
   let input = formForm.elements[name];
@@ -113,6 +123,7 @@ function getFormInputs() {
 function initForm() {
   initRadioButtons('gender');
   initBirthday();
+  initSelect('charge')
 }
 
 

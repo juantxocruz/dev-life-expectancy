@@ -74,7 +74,13 @@
   .bold {
     font-weight: 700;
   }
+  input[name="birthday"] {
+    width: 100%;
+  }
 
+  input[type="submit"] {
+    float: right;
+  }
   input[type="submit"].fieldsOn {
     background-color: $green;
   }

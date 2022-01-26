@@ -48,7 +48,7 @@
             <p class="numeric"><small><label for="birthday">&nbsp; </label></small>
             </p>
 
-            <input class="margin__top-s row numeric" type="date" id="birthday" name="birthday" value=""
+            <input class="margin__top-s row numeric birthday" type="date" id="birthday" name="birthday" value=""
               autocomplete="off">
             <p class="mandatory"><span id='birthday_msg'><small>Fecha
                   obligatoria.</small></span>&nbsp;</p>
@@ -61,11 +61,11 @@
 
           <div class="col-6">
 
-            <p class="form-title">Recargo Vida</p>
+            <p class="form-title">Recargo del seguro de vida</p>
             <small>&nbsp;</small>
             <table class="regular margin__top-xs">
               <tr>
-                <td>% de recargo
+                <td>Aumento de la prima (%)
                   <p class="mandatory"><span id='charge_msg'><small>Campo
                         obligatorio.</small></span>&nbsp;</p>
 
@@ -145,7 +145,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span class="close" id='close_modal_result'>&times;</span>
-          <h2 id="modal_header_span">Resultados</h2>
+          <h2 id="modal_header_span">Esperanza de vida</h2>
         </div>
         <div class="modal-body">
           <div class="container modal">
@@ -155,16 +155,10 @@
                 <p class="small"><span id="result_vars_constitution">
                     <!-- Hombre | 11/01/1965 | 56 años | 75kg | 180 cm | 24,6 imc  -->
                   </span></p>
-                <p class="small"><span id="result_vars_medical">
-                    <!-- Diabetes tipo 1: 5 años | 80 sistólica
-                                                    | 145 diastólica | Más de 25 insulina | De 7,0 a 7,5 hemoglobina | Más de 300
-                                                    colesterol -->
-                  </span>
-                </p>
-                <p class="small"><span id="result_vars_drugs">
-                    <!-- 1 cerveza | 1 vino | 1 licor | 14 cigarrillos | 2 puros | 1 pipa -->
-                  </span>
-                </p>
+                <p class="small"><span id="result_vars_charge">
+                    <!-- Agravamiento | 0%  -->
+                  </span></p>
+
               </div>
 
             </div>
@@ -173,115 +167,58 @@
 
           <div class="container modal">
             <div class="row">
-              <div class="col-3">
 
-                <div class="result-icon life">
-                </div>
-                <h3 class="result">Vida</h3>
-                <p class="big-number"><span id='result_insurance_life'>&nbsp;</span></p>
-                <div id="result_table_life"></div>
-                <!-- 
-                                            <table class='result-table' style="width:100%">
-                                                <tr>
-                                                    <th></th>
-                                                    <th></th>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Diabetes (años)</td>
-                                                    <td>+100</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Diabetes (edad)</td>
-                                                    <td>Rechazar</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>IMC</td>
-                                                    <td>+25%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Tensión</td>
-                                                    <td>+0%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Hemoglobina</td>
-                                                    <td>+125%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Insulina</td>
-                                                    <td>+125%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Colesterol</td>
-                                                    <td>+125%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Tabaco</td>
-                                                    <td>+125%</td>
-            
-                                                </tr>
-                                                <tr>
-                                                    <td>Alcohol</td>
-                                                    <td>+125%</td>
-            
-                                                </tr>
-                                            </table> -->
+              <div class="col-12">
 
-
-              </div>
-              <div class="col-3">
-                <div class="result-icon disability">
-                </div>
-                <h3 class="result">Invalidez</h3>
-                <p class="big-number"><span id='result_insurance_disability'>&nbsp;</span></p>
-                <div id="result_table_disability"></div>
-
-              </div>
-              <div class="col-3">
-                <div class="result-icon accident">
-                </div>
-                <h3 class="result">Accidentes</h3>
-                <p class="big-number"><span id='result_insurance_accident'>&nbsp;</span></p>
-                <div id="result_table_accident"></div>
-              </div>
-              <div class="col-3">
-                <div class="result-icon illness">
-                </div>
-                <h3 class="result">Enfermedad grave</h3>
-                <p class="big-number"><span id='result_insurance_illness'>&nbsp;</span></p>
-                <div id="result_table_illness"></div>
+                <table class="charge-table">
+                  <thead>
+                    <tr>
+                      <th class="tg-0pky"></th>
+                      <th class="tg-0pky">PASEMF</th>
+                      <th class="tg-0pky">GKM95<br></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="tg-0pky">Normal</td>
+                      <td class="tg-0pky">78 años</td>
+                      <td class="tg-0pky"><span style="font-weight:400;font-style:normal">78 años</span></td>
+                    </tr>
+                    <tr>
+                      <td class="tg-0pky">Agravado</td>
+                      <td class="tg-0pky"><span style="font-weight:400;font-style:normal">78 años</span></td>
+                      <td class="tg-0pky"><span style="font-weight:400;font-style:normal">78 años</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
 
-              <div class="col-3">
-                <div class="result-icon ilt"></div>
-                <h3 class="result">I.L.T.</h3>
-                <p class="big-number"><span id='result_insurance_ilt'>&nbsp;</span></p>
-                <div id="result_table_ilt"></div>
-              </div>
             </div>
-            <div class="modal-print">
-              <button onclick="window.print()">Imprimir</button>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <p><small><span id="result_year"></span>©NacionalRe. Todos los derechos reservados.</small></p>
           </div>
         </div>
+        <div class="modal-print">
 
+          <div class="container modal">
+            <div class="row">
+
+              <div class="col-12">
+
+                <button onclick="window.print()">Imprimir</button>
+              </div>
+
+
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <p><small><span id="result_year"></span>©NacionalRe. Todos los derechos reservados.</small></p>
+        </div>
       </div>
 
-
-
     </div>
-
 
 
   </section>

@@ -11,6 +11,8 @@ let dictionary = [{ "key": "date", "value": "fecha" },
 
 let result_today = self.getElementById('result_today');
 let result_year = self.getElementById('result_year');
+let result_vars_constitution = self.getElementById('result_vars_constitution');
+let result_vars_charge = self.getElementById('result_vars_charge');
 
 // functions
 // MODAL WINDOW
@@ -41,6 +43,7 @@ export function openModalResults(event, _vars) {
     let date = bornDate.getDate() + '/' + (bornDate.getMonth() + 1) + '/' + bornDate.getFullYear() + '';
     let age = _vars.age.regular + ' años';
     let actuarial = _vars.age.actuarial + ' años';
+    let charge = _vars.charge + '%';
 
 
 
@@ -51,6 +54,7 @@ export function openModalResults(event, _vars) {
     result_today.innerHTML = today;
     result_year.innerHTML = year;
     result_vars_constitution.innerHTML = constitution;
+    result_vars_charge.innerHTML = "Recargo del seguro de vida --> " + charge;
 
 
     modal_result.style.display = "block";

@@ -13,7 +13,7 @@ export let modalSetup = {
     header: "Atención:",
     content: "",
     action: "",
-    footer: "© NacionalRe. Todos los derechos reservados."
+    footer: " © NacionalRe. Todos los derechos reservados."
 }
 
 

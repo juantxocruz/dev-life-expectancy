@@ -13,6 +13,7 @@ let result_today = self.getElementById('result_today');
 let result_year = self.getElementById('result_year');
 let result_vars_constitution = self.getElementById('result_vars_constitution');
 let result_vars_charge = self.getElementById('result_vars_charge');
+let result_charge_table = self.getElementById('result_charge_table');
 
 // functions
 // MODAL WINDOW
@@ -31,7 +32,39 @@ function getDictionaryWord(key) {
 }
 
 
-export function openModalResults(event, _vars) {
+function drawTable(_expectancy) {
+
+    let table = '';
+    table += '<table class="table charge-table" style="width:100%">';
+    table += '<thead>';
+    table += '<tr><th></th>';
+    table += '<th>PASEMF</th>';
+    table += '<th>GKM95<br></th>';
+    table += '</tr>';
+    table += '</thead>';
+    table += '<tbody>';
+    table += '</tr>';
+    table += '<td>' + 'Normal' + '</td>';
+    table += ' <td>' + _expectancy.gk80.expectancy + ' años</td>';
+    table += ' <td>' + _expectancy.gk95.expectancy + ' años</td>';
+    table += '</tr>';
+
+    if (_expectancy.gk80.charge > 0 || _expectancy.gk95.charge > 0) {
+        table += '</tr>';
+        table += ' <td>' + 'Agravado' + '</td>';
+        table += ' <td class="red" style="font-weight:700">' + _expectancy.gk80.expectancyWithCharge + ' años</td>';
+        table += ' <td class="red" style="font-weight:700">' + _expectancy.gk95.expectancyWithCharge + ' años</td>';
+        table += '</tr>';
+    }
+    table += '</tbody>';
+    table += '</table>';
+
+    return table;
+
+
+}
+
+export function openModalResults(event, _vars, _expectancy) {
     event.stopPropagation();
 
     // vars
@@ -44,6 +77,7 @@ export function openModalResults(event, _vars) {
     let age = _vars.age.regular + ' años';
     let actuarial = _vars.age.actuarial + ' años';
     let charge = _vars.charge + '%';
+    let table = drawTable(_expectancy);
 
 
 
@@ -54,7 +88,10 @@ export function openModalResults(event, _vars) {
     result_today.innerHTML = today;
     result_year.innerHTML = year;
     result_vars_constitution.innerHTML = constitution;
-    result_vars_charge.innerHTML = "Recargo del seguro de vida --> " + charge;
+    result_vars_charge.innerHTML = charge;
+    result_charge_table.innerHTML = table;
+
+
 
 
     modal_result.style.display = "block";

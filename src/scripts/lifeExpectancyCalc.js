@@ -73,21 +73,34 @@ export function seekLifeExpectancy(inputs, search) {
                 expectancy = expectancy + (seek(i + 1, gk, column, charge) / k);
             }
         }
-
         // second loop runs with no charge
         if (charge > 0) {
             expectancyWithCharge = expectancy;
             charge = 0;
         }
-
     }
+
+    // * Si, por causas extrañas, la esperanza agravada es mayor que la normal (es un fallo matemático, no mío)
+    // * hay que rebajarla a la misma que la normal.También si devuelve un valor menor que la edad actual
+
+    if (expectancy < age) {
+        expectancy = age;
+    }
+    if (expectancyWithCharge && expectancyWithCharge < age) {
+        expectancyWithCharge = age;
+    }
+    if (expectancyWithCharge && expectancyWithCharge > expectancy) {
+        expectancyWithCharge = age;
+    }
+
+
 
     // redondeo al más cercano
     let result = {
         "column": column,
         "age": age,
         "gender": gender,
-        "charge": charge,
+        "charge": inputs.charge,
         "expectancy": Math.round(expectancy),
         "expectancyWithCharge": expectancyWithCharge ? Math.round(expectancyWithCharge) : Math.round(expectancy)
     };

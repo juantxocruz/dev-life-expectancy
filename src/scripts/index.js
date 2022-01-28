@@ -143,7 +143,7 @@ function initSubmit() {
       _formInputs = getFormInputs();
       _lifeExpectancy = calculateLifeExpectancy(_formInputs);
       // OPEN results
-      openModalResults(e, _formInputs);
+      openModalResults(e, _formInputs, _lifeExpectancy);
 
     } else {
 

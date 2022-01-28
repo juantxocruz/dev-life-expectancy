@@ -10,6 +10,9 @@ if (process.env.NODE_ENV === 'development') {
   require('../index.html');
 }
 
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+}
 
 
 
@@ -124,6 +127,8 @@ function initForm() {
   initBirthday();
   initSelect('charge')
 }
+
+
 
 
 function initSubmit() {

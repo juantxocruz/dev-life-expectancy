@@ -90,7 +90,7 @@ export function seekLifeExpectancy(inputs, search) {
         expectancyWithCharge = age;
     }
     if (expectancyWithCharge && expectancyWithCharge > expectancy) {
-        expectancyWithCharge = age;
+        expectancyWithCharge = expectancy;
     }
 
 

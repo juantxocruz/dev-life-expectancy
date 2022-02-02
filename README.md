@@ -1,6 +1,8 @@
 # Life Expectancy calculator Webpack 5
 
-A lightweight foundation for your next webpack based frontend project.
+[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+
+NacionalRe Life Expectancy calculator.
 
 ### Installation
 

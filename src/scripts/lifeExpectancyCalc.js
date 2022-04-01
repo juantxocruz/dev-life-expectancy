@@ -44,6 +44,8 @@ function seek(age, database, column, charge) {
 
 
 export function seekLifeExpectancy(inputs, search) {
+    // if charge is higher than 300 return acturial age
+
 
     let database = "gk";
     let gender = inputs.gender === "male" ? "m" : "f";
@@ -58,6 +60,18 @@ export function seekLifeExpectancy(inputs, search) {
     let k;
     let j;
     let i;
+
+    if (+inputs.charge >= 300) {
+        return {
+            "column": column,
+            "age": age,
+            "gender": gender,
+            "charge": inputs.charge,
+            "expectancy": age,
+            "expectancyWithCharge": age
+        };
+
+    }
 
     // loop two times
     // first for expectancyWithCharge

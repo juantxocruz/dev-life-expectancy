@@ -32,6 +32,11 @@ function getDictionaryWord(key) {
 }
 
 
+function getGkTableName(gender) {
+
+    return gender === 'm' ? "GKM95" : "GKF95";
+
+}
 function drawTable(_expectancy) {
 
     let table = '';
@@ -39,7 +44,8 @@ function drawTable(_expectancy) {
     table += '<thead>';
     table += '<tr><th></th>';
     table += '<th>PASEMF</th>';
-    table += '<th>GKM95<br></th>';
+    table += '<th>' + getGkTableName(_expectancy.gk95.gender) + '<br></th>';
+    // table += '<th>GKM95<br></th>';
     table += '</tr>';
     table += '</thead>';
     table += '<tbody>';

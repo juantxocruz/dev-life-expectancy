@@ -53,7 +53,7 @@ export function seekLifeExpectancy(inputs, search) {
 
     //let column = database + gender + table;
     let column = search.replace(':::', gender);
-    let age = inputs.age.actuarial;
+    let age = inputs.age.regular;
     let charge = inputs.charge / 100;
     let expectancyWithCharge;
     let expectancy;
@@ -61,7 +61,7 @@ export function seekLifeExpectancy(inputs, search) {
     let j;
     let i;
 
-    if (+inputs.charge >= 300) {
+    if (+inputs.charge > 300) {
         return {
             "column": column,
             "age": age,
@@ -82,8 +82,8 @@ export function seekLifeExpectancy(inputs, search) {
         k = seek(age, gk, column, charge);
         expectancy = age;
 
-        if (k !== 0) {
-            for (i = age; i < 126; i++) {
+        if (k != 0) {
+            for (i = age; i <= 126; i++) {
                 expectancy = expectancy + (seek(i + 1, gk, column, charge) / k);
             }
         }

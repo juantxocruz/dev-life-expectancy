@@ -1,0 +1,113 @@
+
+1.- La tabla adjunta (XLSX y TXT por si lo prefieres) contiene el rango de edad y 4 columnas con los coeficientes correspondientes a las 2 tablas que se usan: GKx80 (ahora llamada PASEMF) y GKx95 donde x es la correspondiente al sexo (M o F)
+ 
+
+2.- Edad
+Lo llamaremos QUEEDAD en las fórmulas. Si es < 15 o > 120 no se debe calcular, parando los cálculos y avisando con un mensaje.
+
+
+3.- En la aplicación, hay un "recargo de vida" previo, que se pasa como parámetro al cálculo de la esperanza de vida. 
+Puede venir de forma automática si se llama desde VidaNR, o de forma manual (tecleándolo) si se usa el cálculo de esperanza de vida de forma manual. 
+
+Es decir, debemos habilitar una casilla o spinner para especificar ese recargo. 
+
+En la aplicación anterior permite escribir cualquier porcentaje, pero si se usa el spinner incrementa/decrementa de 25 en 25. Lo llamaremos nRecargo para usarlo luego en las fórmulas (dividido por 100. Ej un 25% es 0.25).
+ 
+
+&& http://www.yaldex.com/fox_pro_tutorial/html/zzz.htm
+&& Se llama a la función mCalcula que es la siguiente FOX PRO 9 vfp:
+ 
+&& Esto es para saber qué campo (columna cogemos de la tabla GK, según sexo y si queremos PASEMF(GKx80) o GKx95
+&& <> Not equal to
+&& padl() Returns a string with the length of nLength padded with cPadChar on the left.
+&& PADL(eExpression, nResultSize [, cPadCharacter])
+&& * Command * [Comments] В
+&& *   This is a comment
+ 
+
+
+ThisForm.campo="GK.gk"+IIF(Thisform.lMujer,"F","M")+IIF(ThisForm.opttabla.Value=1,"80","95")
+ 
+queedad=ThisForm.nEdad
+*ThisForm.nRecargo=???
+
+ 
+OLDRECARGO=ThisForm.nRecargo
+ESPEAGRA=0
+ 
+
+&& el loop lo hace dos veces: una para el normal y otra para el recargo
+&& la primera pasada hace el recargo, la segunda sin recargo y devuelve 
+&& La función recursiva recorre desde 100000 (15 años) hasta justo el año anterior del seleccionada (edad -1)
+&& optenemos la constante K = 996744.2262 -->  CONSTANTE K, primera llamada recursiva
+
+&& for i=queedad to 126 --> segunda llamada recursiva
+&& Ahora empieza con 21 años y va hasta el final dando 0.999999...
+
+LOCAL lnParcial
+SET STEP ON
+ 
+
+FOR J=1 to 2
+            k=ThisForm.mFuncion(queedad)
+            && Ojo:la función mFuncion es recursiva (se llama a sí misma dentro de la función). 
+ 
+            esperanza=queedad
+            IF K<>0
+                        for i=queedad to 126
+                                    esperanza=esperanza+ThisForm.mFuncion(i+1)/k
+                        next i
+            ENDIF
+            IF ThisForm.nRecargo>0           && ha calculado la esperanza con recargo
+                        ThisForm.lblagravado.Visible=.t.
+                        ThisForm.lbltitagravado.Visible=.t.
+                        ESPEAGRA=ESPERANZA
+                        *ThisForm.lblagravado.Caption=padl(round(esperanza,0),3)
+                        ThisForm.nRecargo=0
+            ELSE
+                        *ThisForm.lblnormal.Caption=padl(round(esperanza,0),3)
+                        EXIT
+            ENDIF
+NEXT J
+ 
+&& Si, por causas extrañas, la esperanza agravada es mayor que la normal (es un fallo matemático)
+&& hay que rebajarla a la misma que la normal. También si devuelve un valor menor que la edad actual
+
+IF ESPERANZA<QUEEDAD
+            ESPERANZA=QUEEDAD
+ENDIF
+ 
+IF ESPEAGRA<QUEEDAD
+            ESPEAGRA=QUEEDAD
+ENDIF
+ 
+IF ESPEAGRA>ESPERANZA
+            ESPEAGRA=ESPERANZA
+ENDIF
+ 
+ThisForm.lblagravado.Caption=padl(round(espeAGRA,0),3)
+ThisForm.lblnormal.Caption=padl(round(esperanza,0),3)
+ 
+ThisForm.nRecargo=OLDRECARGO
+ 
+ 
+&&  La función llamada mFuncion tiene el siguiente código:
+&& lparameters ParameterList
+&& seek SEEK("somekey","mytable","somekeytag")
+&& SEEK(eExpression [, nWorkArea | cTableAlias  [, nIndexNumber | cIDXIndexFileName | cTagName]])
+&& SEEK returns true  (.T.) or false  (.F.)
+&& Donde ves ThisForm.campo es la columna que vas a usar de la tabla GK (hombre o mujer, GK80 o GK95)
+
+
+lparameters queedad
+if queedad>15
+            =seek(queedad-1,"gk","edad")
+            resultado=(1-(eval(ThisForm.campo)*(1+ThisForm.nrecargo)) ) * ThisForm.mFuncion(queedad-1)
+           
+else
+            return 1000000
+endif
+return resultado
+
+
+

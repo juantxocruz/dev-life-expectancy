@@ -320,7 +320,8 @@ export function calculateLifeExpectancy(inputs) {
 El resultado de la calculadora se muestra con la esperanza sin y con recargo para las dos tablas:
 
 
-![resultado expectancyNR][resultado expectancyNR]
+![result expectancyNR][result expectancyNR]
+
 
 
 
@@ -328,28 +329,7 @@ El resultado de la calculadora se muestra con la esperanza sin y con recargo par
 
 # Traducción
 
-Las calculadoras de diabetes y de riesgos se pueden obtener en dos idiomas: inglés y castellano.
-La calculadora de esperanza de vida no se ha traducido, ya que las tablas no corresponden a la población anglosajona. Por tanto, en la versión inglés, no aparece el resultado de la esperanza de vida.
-Sobre un único código, la aplicación recoge una variable (key) desde la URL que transmite el lenguaje (ES o EN) que se aplicará a las distintas variables del documento HTML.
-Es decir, existe un diccionario al que la aplicación consulta la traducción de una determinada variable.
-
-- [Diccionario VidaNr](docs/vidaNR_dictionary.csv).
-- [Diccionario Diabetes](docs/diabetes_dictionary.csv).
-
-En catellano:
-```bash
-http://localhost:8080/?lang=ES
-
-http://davinci.nacionalre.es/nacionalRe-vidaNr/build/?lang=es
-
-```
-
-En inglés:
-```bash
-http://localhost:8080/?lang=EN
-
-http://davinci.nacionalre.es/nacionalRe-vidaNr/build/?lang=en
-```
+Esta calculadora no tiene traducción a un segundo idioma.
 
 
 <p align="right">(<a href="#top">Subir</a>)</p>
@@ -396,5 +376,6 @@ Project Link: [https://github.com/juantxocruz/webpack-expectancyNr](https://gith
 
 
 [formulario expectancyNR]: img/expectancyNR-form.png
+[result expectancyNR]: img/expectancyNR-result.png
 [Función recursiva 1 FoxPro]: img/expectancyNR-segunda-recursiva-1.png
 [Función recursiva 2 FoxPro]: img/expectancyNR-segunda-recursiva-2.png
